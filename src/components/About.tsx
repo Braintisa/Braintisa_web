@@ -1,4 +1,7 @@
 import { Target, Lightbulb, Award, Users } from "lucide-react";
+import Reveal from "@/components/Reveal";
+import SectionBg from "@/components/SectionBg";
+import SectionParticles from "@/components/SectionParticles";
 
 const About = () => {
   const values = [
@@ -25,8 +28,10 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 gradient-subtle">
-      <div className="container mx-auto px-4">
+    <section id="about" className="relative overflow-hidden py-20 gradient-subtle">
+      <SectionBg />
+      <SectionParticles opacity={0.28} />
+      <div className="container mx-auto px-4 section-content">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             About <span className=" bg-clip-text ">Braintisa</span>
@@ -41,17 +46,13 @@ const About = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, index) => (
-            <div
-              key={index}
-              className="glass-effect p-6 rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 animate-scale-in group"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
+            <Reveal key={index} delayMs={index * 100} className="glass-effect p-6 rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 group">
               <div className="w-12 h-12 rounded-lg gradient-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <value.icon className="w-6 h-6 text-accent-foreground" />
               </div>
               <h3 className="text-xl font-bold mb-3">{value.title}</h3>
               <p className="text-muted-foreground">{value.description}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

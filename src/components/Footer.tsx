@@ -76,9 +76,9 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div className="col-span-2 md:col-span-1 lg:col-span-1">
             <h3 className="text-2xl font-bold mb-4">
               Brain<span className="text-primary">t</span>isa
             </h3>

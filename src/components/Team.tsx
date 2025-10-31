@@ -1,12 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Linkedin, Github, Mail } from "lucide-react";
 import { teamMembers } from "@/data/teamData";
+import Reveal from "@/components/Reveal";
+import SectionBg from "@/components/SectionBg";
+import SectionParticles from "@/components/SectionParticles";
 
 const Team = () => {
 
   return (
-    <section id="team" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="team" className="relative overflow-hidden py-20 bg-background">
+      <SectionBg />
+      <SectionParticles opacity={0.2} />
+      <div className="container mx-auto px-4 section-content">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Meet Our <span className=" bg-clip-text">Team</span>
@@ -18,11 +23,7 @@ const Team = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 group animate-scale-in"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
+            <Reveal key={index} delayMs={index * 100} className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 group">
               <div className="relative overflow-hidden h-64">
                 <img
                   src={member.image}
@@ -64,7 +65,7 @@ const Team = () => {
                   </a>
                 </Button>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

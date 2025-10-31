@@ -1,12 +1,17 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projectsData";
+import Reveal from "@/components/Reveal";
+import SectionBg from "@/components/SectionBg";
+import SectionParticles from "@/components/SectionParticles";
 
 const Projects = () => {
 
   return (
-    <section id="projects" className="py-20 gradient-subtle">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="relative overflow-hidden py-20 gradient-subtle">
+      <SectionBg />
+      <SectionParticles opacity={0.22} />
+      <div className="container mx-auto px-4 section-content">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Our <span className=" bg-clip-text">Projects</span>
@@ -18,11 +23,7 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300 group animate-scale-in"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
+            <Reveal key={index} delayMs={index * 100} className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-strong transition-all duration-300 group">
               <div className="relative overflow-hidden h-48">
                 <img
                   src={project.image}
@@ -59,7 +60,7 @@ const Projects = () => {
                   </Button>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

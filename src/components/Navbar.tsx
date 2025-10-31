@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
@@ -6,6 +6,31 @@ import { useTheme } from "@/components/ThemeProvider";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [isPastHero, setIsPastHero] = useState(false);
+
+  useEffect(() => {
+    const hero = document.getElementById("home");
+    if (!hero) {
+      const onScroll = () => setIsPastHero(window.scrollY > 80);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsPastHero(!entry.isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: "-72px 0px 0px 0px",
+      }
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -22,7 +47,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass-effect shadow-soft">
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur
+      ${isPastHero ? "bg-card/85 border-b border-border shadow-soft" : "bg-card/0 border-b border-transparent shadow-none"}`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <a href="#home" className="text-2xl font-bold">

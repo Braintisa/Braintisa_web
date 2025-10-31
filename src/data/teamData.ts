@@ -3,7 +3,7 @@ export const teamMembers = [
         name: "Imesh Dinil",
         role: "Founder",
         bio: "",
-        image: "https://avatars.githubusercontent.com/u/134542046?v=4",
+        image: "./assets/images/imesh.jpg",
         portfolio: "https://sarah-portfolio.example.com",
         skills: ["System Architecture", "Cloud Infrastructure", "Team Leadership"],
         linkedin: "https://www.linkedin.com/in/imesh-dinil/",

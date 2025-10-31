@@ -105,10 +105,16 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: montserrat, sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
+  }
+
+  @font-face {
+    font-family: "montserrat";
+    src: url("../public/assets/fonts/Montserrat.ttf") format("truetype");
   }
 }
 

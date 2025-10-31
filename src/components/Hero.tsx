@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
 import { ArrowRight, Code2, Sparkles } from "lucide-react";
-import heroBanner from "@/assets/hero-banner.jpg";
+import heroBanner from "../../public/assets/images/hero-banner.jpg";
 import { companyInfo } from "@/data/companyData";
 
 const Hero = () => {
@@ -259,7 +259,7 @@ const Hero = () => {
       />
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 gradient-subtle opacity-50 z-[2]" />
+      <div className="absolute inset-0 gradient-subtle opacity-20 dark:opacity-50 z-[2]" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
@@ -275,7 +275,7 @@ const Hero = () => {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-100 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
             {companyInfo.description}
           </p>
           

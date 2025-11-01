@@ -30,7 +30,7 @@ const About = () => {
   return (
     <section id="about" className="relative overflow-hidden py-20 gradient-subtle">
       <SectionBg />
-      <SectionParticles opacity={0.28} />
+      <SectionParticles opacity={1} />
       <div className="container mx-auto px-4 section-content">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">

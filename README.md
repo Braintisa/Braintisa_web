@@ -1,82 +1,88 @@
-# Braintisa Showcase Site
+# Braintisa
 
-A modern marketing website for the Braintisa software consultancy featuring animated sections, rich data-driven content, and smooth UX enhancements built with Vite, React, TypeScript, and Tailwind CSS.
+A modern, high-performance marketing website for Braintisa software consultancy. Built with React, TypeScript, and Tailwind CSS, featuring smooth animations, responsive design, and an intuitive user experience.
 
-## Features
+## Overview
 
-- Responsive single-page layout with hero, services, projects, team, testimonials, and contact sections
-- Smooth in-page navigation including animated scroll-to-section actions and a scroll-to-top control
-- Dark/light theme toggle powered by `next-themes`
-- Animated cards, gradients, and hover states using Tailwind CSS utilities and custom classes
-- Interactive contact form with toast notifications and client-side validation powered by `react-hook-form`
-- Data-driven content sourced from structured TypeScript modules for easy maintenance
+Braintisa Showcase is a single-page application designed to present our consultancy services, portfolio, team, and client testimonials in a visually engaging format. The site emphasizes performance, accessibility, and maintainability through modern web development practices.
 
-## Tech Stack
+## Key Features
 
-- **Framework:** [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS with custom configuration and shadcn/ui components
-- **UI Primitives:** Radix UI + shadcn/ui component library
-- **State & Utilities:** TanStack Query (setup for future data fetching), `clsx`, `tailwind-merge`
-- **Icons:** lucide-react
-- **Routing:** React Router (SPA with landing page + 404)
+- **Responsive Design** – Fully optimized for desktop, tablet, and mobile devices
+- **Theme Support** – Dark/light mode toggle with persistent user preferences
+- **Smooth Navigation** – Animated scroll-to-section functionality and scroll-to-top control
+- **Interactive Components** – Animated cards, hover states, and transitions
+- **Validated Contact Form** – Client-side validation with toast notifications
+- **Data-Driven Architecture** – Structured content modules for easy maintenance
+- **Performance Optimized** – Built with Vite for fast development and production builds
 
-## Getting Started
+## Technology Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Core** | React 18, TypeScript, Vite |
+| **Styling** | Tailwind CSS, shadcn/ui components |
+| **UI Primitives** | Radix UI |
+| **State Management** | TanStack Query |
+| **Form Handling** | React Hook Form |
+| **Icons** | Lucide React |
+| **Routing** | React Router |
+| **Utilities** | clsx, tailwind-merge |
+
+## Quick Start
 
 ### Prerequisites
 
-- Node.js 18+
-- npm (or another Node package manager)
+- Node.js 18 or higher
+- npm, yarn, or pnpm
 
 ### Installation
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd braintisa-showcase
+
+# Install dependencies
 npm install
 ```
 
 ### Development
 
 ```bash
+# Start development server
 npm run dev
 ```
 
-Access the local dev server at the URL shown in the terminal (default: http://localhost:5173).
+The application will be available at `http://localhost:5173` (or the next available port).
 
-### Production Build
+### Production
 
 ```bash
+# Create production build
 npm run build
-```
 
-### Preview Production Build
-
-```bash
+# Preview production build locally
 npm run preview
 ```
 
-### Linting
+## Available Scripts
 
-```bash
-npm run lint
-```
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server with hot module replacement |
+| `npm run build` | Generate optimized production build in `dist/` |
+| `npm run preview` | Serve production build locally for testing |
+| `npm run lint` | Run ESLint to check code quality |
 
-| Script          | Description                                     |
-|-----------------|-------------------------------------------------|
-| `npm run dev`   | Start Vite development server                   |
-| `npm run build` | Generate production build                       |
-| `npm run preview` | Preview the production build locally          |
-| `npm run lint`  | Run ESLint across the project                   |
-
-## Project Structure
+## Project Architecture
 
 ```
-.
-├── public/                      # Static assets served as-is
+braintisa-showcase/
+├── public/                  # Static assets
 ├── src/
-│   ├── App.tsx                  # App providers (theme, query, router, toasts)
-│   ├── main.tsx                 # React entry point
-│   ├── assets/                  # Local imagery and media
-│   ├── components/
+│   ├── components/          # React components
+│   │   ├── ui/             # shadcn/ui primitives
 │   │   ├── Navbar.tsx
 │   │   ├── Hero.tsx
 │   │   ├── About.tsx
@@ -85,67 +91,158 @@ npm run lint
 │   │   ├── Team.tsx
 │   │   ├── Testimonials.tsx
 │   │   ├── Contact.tsx
-│   │   ├── Footer.tsx
-│   │   └── ui/                  # shadcn/ui primitives and wrappers
-│   ├── data/                    # Structured content modules (company, projects, etc.)
-│   ├── hooks/                   # Custom hooks (toast management)
-│   ├── lib/                     # Utility helpers
-│   ├── pages/                   # Route components (Index, NotFound)
-│   └── styles (App.css, index.css)
-├── tailwind.config.ts           # Tailwind theme and animation config
-├── tsconfig*.json               # TypeScript configuration
-├── vite.config.ts               # Vite build configuration
-└── package.json                 # Dependencies and scripts
+│   │   └── Footer.tsx
+│   ├── data/               # Content modules
+│   │   ├── companyData.ts
+│   │   ├── servicesData.ts
+│   │   ├── projectsData.ts
+│   │   ├── teamData.ts
+│   │   └── testimonialsData.ts
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/                # Utility functions
+│   ├── pages/              # Route components
+│   ├── styles/             # Global styles
+│   ├── App.tsx             # Application root
+│   └── main.tsx            # Entry point
+├── tailwind.config.ts      # Tailwind configuration
+├── tsconfig.json           # TypeScript configuration
+├── vite.config.ts          # Vite configuration
+└── package.json            # Project dependencies
 ```
 
-## Key Components & Pages
+## Core Components
 
-- **Navbar:** Glass-effect fixed header with responsive navigation and theme toggle.
-- **Hero:** Animated hero section with smooth scroll buttons (`Get Started` → About, `View Our Work` → Projects).
-- **About/Services/Projects/Team/Testimonials:** Section components rendering data-driven cards and grids with staggered animations.
-- **Contact:** Two-column layout combining contact details with a validated form and toast confirmation.
-- **Footer:** Multi-column footer with social links and an animated scroll-to-top button that appears after scrolling 300px.
-- **Pages:** `pages/Index.tsx` orchestrates the landing page sections; `pages/NotFound.tsx` provides a fallback route.
+### Navbar
+Fixed header with glass-effect styling, responsive navigation menu, and integrated theme toggle.
 
-## Data Modules
+### Hero
+Animated landing section with call-to-action buttons featuring smooth scroll navigation.
 
-Located under `src/data/`, each file exports typed content arrays/objects consumed by the UI:
+### Services
+Grid layout showcasing consultancy offerings with detailed feature lists.
 
-- `companyData.ts`: Company profile, stats, contact info, business hours.
-- `servicesData.ts`: Service offerings with feature lists.
-- `projectsData.ts`: Portfolio projects with tech stacks and external links.
-- `teamData.ts`: Team member bios, skills, and portfolio URLs.
-- `testimonialsData.ts`: Client testimonials with ratings and avatars.
+### Projects
+Portfolio showcase with project cards displaying technologies and external links.
 
-The accompanying `README.md` in the data folder documents the structure of each dataset for future updates.
+### Team
+Team member profiles with skills, bios, and portfolio links.
 
-## Styling & Theming
+### Testimonials
+Client feedback carousel with ratings and testimonial content.
 
-- Tailwind CSS configured in `tailwind.config.ts` with custom colors, gradients, and animation utilities.
-- `index.css` and `App.css` define global resets, custom classes (e.g., `glass-effect`, gradient helpers), and keyframe animations.
-- `ThemeProvider` wraps the app to persist user-selected light/dark themes using `next-themes`.
-- shadcn/ui primitives (e.g., `Button`, `Input`, `Tooltip`) provide consistent styling across the app.
+### Contact
+Dual-column layout featuring company contact information and a validated submission form.
 
-## Animations & Interactions
+### Footer
+Multi-column footer with social links, company information, and animated scroll-to-top button.
 
-- Section cards use Tailwind animations (`animate-fade-in-up`, `animate-scale-in`) for entrance effects.
-- Buttons include hover transforms for subtle motion.
-- Hero CTA buttons trigger smooth scrolling to target sections.
-- Footer hosts a scroll-to-top button with fade/slide transitions and hover bounce animation.
+## Data Management
 
-## Notifications
+Content is managed through structured TypeScript modules in `src/data/`:
 
-- `src/hooks/use-toast.ts` implements a custom toast manager with capped queues and dismiss timers.
-- Toasts are surfaced via shadcn/ui `Toaster` and Sonner-based notifications configured in `App.tsx`.
+- **companyData.ts** – Company profile, statistics, contact information, business hours
+- **servicesData.ts** – Service offerings with feature descriptions
+- **projectsData.ts** – Portfolio projects with technology stacks and links
+- **teamData.ts** – Team member information, skills, and portfolios
+- **testimonialsData.ts** – Client testimonials with ratings
 
-## Testing & Linting
+This architecture enables easy content updates without modifying component logic. See `src/data/README.md` for detailed schema documentation.
 
-While no automated tests are included by default, ESLint is configured for both React and TypeScript best practices. Extend with `vitest` or other tools as needed.
+## Styling System
+
+### Tailwind CSS Configuration
+Custom theme configuration in `tailwind.config.ts` includes:
+- Extended color palette
+- Custom animations and keyframes
+- Gradient utilities
+- Responsive breakpoints
+
+### Theme Support
+- Powered by `next-themes` for persistent theme preferences
+- Supports system preference detection
+- Smooth transitions between themes
+
+### Component Styling
+- shadcn/ui components provide consistent, accessible UI primitives
+- Custom utility classes for glass effects and gradients
+- Tailwind animations for entrance effects and interactions
+
+## User Experience Features
+
+### Animations
+- Staggered entrance animations for section content
+- Smooth scroll behavior for navigation
+- Hover effects and transitions on interactive elements
+- Fade and slide animations for dynamic components
+
+### Interactions
+- Smooth scrolling to target sections
+- Scroll-to-top button (appears after 300px scroll)
+- Form validation with real-time feedback
+- Toast notifications for user actions
+
+### Accessibility
+- Semantic HTML structure
+- ARIA labels and roles
+- Keyboard navigation support
+- Screen reader compatibility
+
+## Toast Notifications
+
+Custom toast implementation (`src/hooks/use-toast.ts`) provides:
+- Queue management with configurable limits
+- Auto-dismiss timers
+- Multiple toast types (success, error, info, warning)
+- Integration with shadcn/ui Toaster component
+
+## Code Quality
+
+### Linting
+ESLint configured for React and TypeScript best practices. Run checks with:
+```bash
+npm run lint
+```
+
+### Type Safety
+Full TypeScript coverage ensures type safety across the application.
 
 ## Deployment
 
-The project builds to static assets via `npm run build`, producing an optimized bundle suitable for static hosting providers (e.g., Netlify, Vercel) or integration into a larger deployment pipeline.
+The build output is production-ready static assets suitable for:
+- **Static Hosting**: Netlify, Vercel, GitHub Pages
+- **CDN Deployment**: Cloudflare Pages, AWS S3 + CloudFront
+- **Traditional Hosting**: Apache, Nginx
+
+### Build Output
+Production builds are generated in the `dist/` directory and include:
+- Minified and optimized JavaScript bundles
+- Code splitting for improved performance
+- Optimized CSS with unused styles purged
+- Compressed assets
+
+## Browser Support
+
+- Chrome/Edge (last 2 versions)
+- Firefox (last 2 versions)
+- Safari (last 2 versions)
+- Modern mobile browsers
+
+## Contributing
+
+Contributions are welcome. Please ensure:
+- Code passes ESLint checks
+- TypeScript types are properly defined
+- Components follow existing patterns
+- Commit messages are descriptive
 
 ## License
 
-No explicit license is provided. Add licensing information here if needed before distribution.
+This project is proprietary software. All rights reserved.
+
+## Support
+
+For questions or support, please contact the development team or open an issue in the repository.
+
+---
+
+**Built with ❤️ by the Braintisa Team**

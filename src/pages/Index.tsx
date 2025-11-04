@@ -13,7 +13,7 @@ import Preloader from "@/components/Preloader.tsx";
 import {useEffect, useState} from "react";
 
 const Index = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         const handleLoaded = () => {

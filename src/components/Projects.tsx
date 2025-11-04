@@ -34,7 +34,7 @@ const Projects = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-                <p className="text-muted-foreground mb-4">{project.description}</p>
+                <p className="text-muted-foreground mb-4">{project.short_description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, idx) => (
                     <span

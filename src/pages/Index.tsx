@@ -7,7 +7,6 @@ import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import {Element} from "react-scroll";
 import {AnimatePresence} from "framer-motion";
 import Preloader from "@/components/Preloader.tsx";
 import {useEffect, useState} from "react";
@@ -41,30 +40,14 @@ const Index = () => {
 
             {!isLoading &&
                 <>
-                    <Navbar/>
-                    <main>
-                        <Element name="hero">
-                            <Hero/>
-                        </Element>
-                        <Element name="about">
-                            <About/>
-                        </Element>
-                        <Element name="services">
-                            <Services/>
-                        </Element>
-                        <Element name="projects">
-                            <Projects/>
-                        </Element>
-                        <Element name="team">
-                            <Team/>
-                        </Element>
-                        <Element name="testimonials">
-                            <Testimonials/>
-                        </Element>
-                        <Element name="contact">
-                            <Contact/>
-                        </Element>
-                    </main>
+                    <Navbar type={1}/>
+                    <Hero/>
+                    <About/>
+                    <Services/>
+                    <Projects/>
+                    <Team/>
+                    <Testimonials/>
+                    <Contact/>
                     <Footer/>
                 </>
             }

@@ -28,9 +28,9 @@ export const companyInfo = {
   },
   
   stats: [
-    { value: "100+", label: "Projects Delivered" },
-    { value: "50+", label: "Happy Clients" },
-    { value: "20+", label: "Team Members" },
+    { value: "114+", label: "Projects Delivered" },
+    { value: "57+", label: "Happy Clients" },
+    { value: "8+", label: "Team Members" },
     { value: "5+", label: "Years Experience" },
   ],
   

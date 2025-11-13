@@ -3,7 +3,6 @@ import {useEffect, useRef} from "react";
 import {ArrowRight, Code2, Sparkles} from "lucide-react";
 import heroBanner from "../../public/assets/images/hero-banner.jpg";
 import {companyInfo} from "@/data/companyData";
-import {Link} from "react-scroll";
 import {motion} from "framer-motion";
 
 const Hero = () => {
@@ -244,6 +243,7 @@ const Hero = () => {
             window.removeEventListener("blur", onMouseLeave as EventListener);
         };
     }, []);
+
     const scrollTo = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
@@ -281,12 +281,12 @@ const Hero = () => {
                         <span className="text-sm font-medium">Innovation Meets Excellence</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
                         {companyInfo.tagline.split('Cutting-Edge Software')[0]}
                         <span className="bg-clip-text">Cutting-Edge Software</span>
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-slate-100 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
+                    <p className="text-lg md:text-2xl text-slate-100 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
                         {companyInfo.description}
                     </p>
 
@@ -311,7 +311,7 @@ const Hero = () => {
                     </div>
 
                     {/* Floating Stats */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-3xl mx-auto">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 mb-16 lg:mb-0 max-w-3xl mx-auto">
                         {companyInfo.stats.map((stat, index) => (
                             <div
                                 key={index}
@@ -337,12 +337,9 @@ const Hero = () => {
                     ease: "easeInOut",
                 }}
             >
-                <Link
+                <a
+                    href="#about"
                     className="w-6 h-10 border-2 border-primary rounded-full flex justify-center cursor-pointer"
-                    to="about"
-                    smooth={true}
-                    offset={-75}
-                    duration={500}
                 >
                     <motion.div
                         className="w-1.5 h-1.5 bg-primary rounded-full mt-2"
@@ -355,7 +352,7 @@ const Hero = () => {
                             ease: "easeInOut",
                         }}
                     />
-                </Link>
+                </a>
             </motion.div>
             </div>
         </section>

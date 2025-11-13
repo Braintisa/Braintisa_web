@@ -1,10 +1,9 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button} from "@/components/ui/button";
 import {Moon, Sun, Menu, X} from "lucide-react";
 import {useTheme} from "@/components/ThemeProvider";
-import {Link} from "react-scroll";
 
-const Navbar = () => {
+const Navbar: React.FC<{ type: number }> = ({type = 1}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const {theme, setTheme} = useTheme();
     const [isPastHero, setIsPastHero] = useState(false);
@@ -54,29 +53,37 @@ const Navbar = () => {
         >
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
-                    <Link
-                        to="home"
-                        smooth={true}
-                        offset={-75}
-                        duration={500}
-                        className="text-2xl font-bold cursor-pointer">
-                        Brain<span className="text-primary">t</span>isa
-                    </Link>
 
                     {/* Desktop Navigation */}
+                    {type === 1 ? (
+                        <button className="text-2xl font-bold cursor-pointer"
+                                onClick={() => {
+                                    window.scrollTo({top: 0, behavior: "smooth"});
+                                    history.replaceState(null, null, ' ');
+                                }}>
+                            Brain<span className="text-primary">t</span>isa
+                        </button>
+                    ) : (
+                        <a
+                            href="/#projects"
+                            className="text-2xl font-bold cursor-pointer">
+                            Brain<span className="text-primary">t</span>isa
+                        </a>
+                    )}
                     <div className="hidden md:flex items-center space-x-8">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                to={link.href}
-                                smooth={true}
-                                offset={-75}
-                                duration={500}
-                                className="text-foreground hover:text-primary transition-colors duration-300 font-medium cursor-pointer"
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
+                        {type === 1 &&
+                            <>
+                                {navLinks.map((link) => (
+                                    <a
+                                        key={link.href}
+                                        href={`#${link.href}`}
+                                        className="text-foreground hover:text-primary transition-colors duration-300 font-medium cursor-pointer"
+                                    >
+                                        {link.label}
+                                    </a>
+                                ))}
+                            </>
+                        }
                         <Button
                             variant="ghost"
                             size="icon"
@@ -104,17 +111,19 @@ const Navbar = () => {
                                 <Sun className="h-5 w-5"/>
                             )}
                         </Button>
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        >
-                            {isMenuOpen ? (
-                                <X className="h-6 w-6"/>
-                            ) : (
-                                <Menu className="h-6 w-6"/>
-                            )}
-                        </Button>
+                        {type === 1 &&
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            >
+                                {isMenuOpen ? (
+                                    <X className="h-6 w-6"/>
+                                ) : (
+                                    <Menu className="h-6 w-6"/>
+                                )}
+                            </Button>
+                        }
                     </div>
                 </div>
 
@@ -123,17 +132,14 @@ const Navbar = () => {
                     <div className="md:hidden py-4 animate-fade-in">
                         <div className="flex flex-col space-y-4">
                             {navLinks.map((link) => (
-                                <Link
+                                <a
                                     key={link.href}
-                                    to={link.href}
-                                    smooth={true}
-                                    offset={-75}
-                                    duration={500}
+                                    href={`#${link.href}`}
                                     className="text-foreground hover:text-primary transition-colors duration-300 font-medium cursor-pointer"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {link.label}
-                                </Link>
+                                </a>
                             ))}
                         </div>
                     </div>

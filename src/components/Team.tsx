@@ -62,8 +62,8 @@ const Team = () => {
                                             key={idx}
                                             className="px-2 py-1 rounded-md text-xs font-medium bg-secondary text-secondary-foreground"
                                         >
-                      {skill}
-                    </span>
+                                          {skill}
+                                        </span>
                                     ))}
                                 </div>
                                 <Button variant="outline" size="sm" className="w-full" asChild>

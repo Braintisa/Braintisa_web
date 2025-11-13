@@ -65,7 +65,7 @@ const Navbar: React.FC<{ type: number }> = ({type = 1}) => {
                         </button>
                     ) : (
                         <a
-                            href="/#projects"
+                            href="/"
                             className="text-2xl font-bold cursor-pointer">
                             Brain<span className="text-primary">t</span>isa
                         </a>

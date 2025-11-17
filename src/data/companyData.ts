@@ -9,15 +9,15 @@ export const companyInfo = {
       support: "support@braintisa.com",
     },
     phone: {
-      main: "+1 (555) 123-4567",
-      support: "+1 (555) 765-4321",
+      main: "+94707676576",
+      support: "+94702940593",
     },
     address: {
-      street: "123 Tech Boulevard",
-      city: "Silicon Valley",
-      state: "CA",
-      zip: "94025",
-      country: "United States",
+      // street: "123 Tech Boulevard",
+      // city: "Silicon Valley",
+      // state: "CA",
+      // zip: "94025",
+      // country: "United States",
     },
   },
   
@@ -28,10 +28,10 @@ export const companyInfo = {
   },
   
   stats: [
-    { value: "114+", label: "Projects Delivered" },
+    { value: "50+", label: "Projects Delivered" },
     { value: "57+", label: "Happy Clients" },
-    { value: "8+", label: "Team Members" },
-    { value: "5+", label: "Years Experience" },
+    { value: "10+", label: "Team Members" },
+    { value: "4+", label: "Years Experience" },
   ],
   
   social: {

@@ -245,4 +245,4 @@ For questions or support, please contact the development team or open an issue i
 
 ---
 
-**Built with ❤️ by the Braintisa Team**
+**Built with by the Braintisa Team**
